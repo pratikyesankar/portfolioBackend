@@ -33,7 +33,7 @@ Welcome to my personal portfolio website built using modern full-stack technolog
 - Vercel
 - Github
 
-  ## Contact
+## Contact
 For bugs or feature requests, please reach out to pratikyesankar17.@gmail.com.
 
 
