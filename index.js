@@ -4,7 +4,7 @@
 
   
 const WebDevProject = require("./models/webDevProject.model");
-const TechStack = require("./models/techStack.model");
+const TechStack = require("./models/techstack.model");
 const Contact = require("./models/contact.model");
 
 const { initializeDatabase } = require("./db/db.connect");
