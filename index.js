@@ -1,26 +1,30 @@
  const express = require("express");
- const cors = require("cors");
- const app = express();
+const cors = require("cors");
+const app = express();
 
-  
 const WebDevProject = require("./models/webDevProject.model");
 const TechStack = require("./models/techstack.model");
 const Contact = require("./models/contact.model");
 
 const { initializeDatabase } = require("./db/db.connect");
 
-initializeDatabase();
+initializeDatabase().catch(err => {
+  console.error("Database initialization failed:", err.message);
+  process.exit(1);
+});
 
-app.use(cors());
-app.use(express.json());
- 
 // app.use(cors({
-//   origin: 'http://localhost:5173' 
+//   origin: 'http://localhost:5173' // Use 'https://post-folio-frontend.vercel.app/' for production
 // }));
+// app.use(express.json());
 
 app.use(cors({
-  origin: 'https://post-folio-frontend.vercel.app/' 
+  origin: 'https://post-folio-frontend.vercel.app/' // Use 'https://post-folio-frontend.vercel.app/' for production
 }));
+app.use(express.json());
+
+
+
 // ---------------------- Portfolio Routes (Public) ----------------------
 
 app.get("/projects", async (req, res) => {
@@ -59,4 +63,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
