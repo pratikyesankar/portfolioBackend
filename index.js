@@ -19,7 +19,7 @@ initializeDatabase().catch(err => {
 // app.use(express.json());
 
 app.use(cors({
-  origin: 'https://post-folio-frontend.vercel.app/' // Use 'https://post-folio-frontend.vercel.app/' for production
+  origin: '*' // Use 'https://post-folio-frontend.vercel.app/' for production
 }));
 app.use(express.json());
 
